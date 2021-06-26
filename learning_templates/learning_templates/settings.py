@@ -23,7 +23,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 SECRET_KEY = 'q^fsy+l*p3adkwn@at!94)j@z6i#nw&ta1$1-*q&0m!+j3l9)w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'projectdeploy.pythonanywhere.com').split()
 
