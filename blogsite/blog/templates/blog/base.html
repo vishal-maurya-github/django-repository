@@ -1,0 +1,152 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>blogsite</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+
+
+
+    <!-- Glyphicon icons  -->
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+
+
+
+    <!-- Bootstrap core CSS -->
+
+  <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+    <style>
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/blog.css' %}" rel="stylesheet">
+  </head>
+  <body>
+
+          <header>
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}">Wordfeel</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                  <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'blog:about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'blog:post_list' %}">Post List</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                      <a class="nav-link active navbar-right" aria-current="page" href="{% url 'blog:register' %}">Register</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'blog:post_new' %}">New Post</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'blog:author_post_list' %}">Profile</a>
+                    </li> -->
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Profile
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="{% url 'blog:edit_profile' %}">Edit Settings</a></li>
+                          {% if user.profile.id %}
+                              <li><a class="dropdown-item" href="{% url 'blog:edit_profile_page' user.profile.id %}">Edit Profile Page</a></li>
+
+                              <li><a class="dropdown-item" href="{% url 'blog:author_post_list' %}">Show Profile Page</a></li>
+                          {% else %}
+                              <li><a class="dropdown-item" href="{% url 'blog:create_profile_page' %}">Create Profile Page</a></li>
+                          {% endif %}
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active navbar-right" aria-current="page" href="{% url 'blog:logout' %}">Log out</a>
+                    </li>
+
+                    {% else %}
+                    <li class="nav-item">
+                      <a class="nav-link active navbar-right" aria-current="page" href="{% url 'blog:login' %}">Log in</a>
+                    </li>
+
+                    {% endif %}
+
+                  </ul>
+                  {% if user.is_authenticated %}
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                          <li class="nav-item navbar">
+                            {% if user.first_name and user.last_name %}
+                                <a class="nav-link active navbar-right" aria-current="page" >Welcome to Wordfeel {{user.first_name }} {{user.last_name }}!</a>
+                            {% else %}
+                                <a class="nav-link active navbar-right" aria-current="page" >Welcome to Wordfeel {{user.username}}!</a>
+                            {% endif %}
+                          </li>
+
+                    </ul>
+                  {% endif %}
+                  <!-- <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                  </form> -->
+
+
+                </div>
+              </div>
+            </nav>
+          </header>
+          <div class="container">
+            {% block body_block %}
+            {% endblock %}
+
+          </div>
+
+
+
+
+
+          <script src="{% static 'js/blog.js' %}"></script>
+
+            <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+  </body>
+</html>

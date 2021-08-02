@@ -1,0 +1,43 @@
+{%  extends 'blog/base.html'  %}
+{% load crispy_forms_tags %}
+
+{% block body_block %}
+
+  {% if user.is_authenticated %}
+      {% if user.id == profile.user.id %}
+          <h1>
+              <br>
+              {% if not profile.user.id %}
+              <!-- checks instance of a pk exists or not! if it doesn't exists that means it is a new school -->
+                Create Profile
+              {% else %}
+              <!-- otherwise we update school that currently exists! -->
+                Edit Profile
+              {% endif %}
+           </h1>
+
+          <form class="form-group" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form|crispy }}
+              
+              <br>
+              <input type="submit" class="btn btn-primary" value="Update Profile">
+
+            </form>
+
+      {% else %}
+            <br><br><br>
+
+            <h3>You are not authorized to edit someone else profile.</h3>
+
+      {% endif %}
+
+
+
+  {% else %}
+
+      <h3>Please first Login to edit this page.</h3>
+
+  {% endif %}
+
+{% endblock %}

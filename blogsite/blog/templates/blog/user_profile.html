@@ -1,0 +1,15 @@
+{%  extends 'blog/base.html'  %}
+
+{% block body_block %}
+    <br><br><br><br>
+    <h1>Congrates {{page_user}}!</h1>
+    <hr>
+
+<!--- PROFILE CREATED MSG -->
+<br>
+
+<h3>Your Profile has been Succesfully Created!</h3>
+<br>
+<a class="btn btn-warning" href="{% url 'blog:author_post_list' %}">Show Profile Page</a>
+
+{% endblock %}

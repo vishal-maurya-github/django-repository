@@ -1,0 +1,39 @@
+{%  extends 'blog/base.html'  %}
+{%load crispy_forms_tags %}
+
+
+
+{% block body_block %}
+
+    <div class="p-5 mb-4 bg-light rounded-3">
+          <div class="container-fluid py-5">
+            {% if registered %}
+            {{ user.profile.bio }}
+            <h1></h1>
+            <h1>Thank you for Registering {{ user.username }}!</h1>
+            <br>
+            <br>
+            <h2>Please Log in!</h2>
+            <p><a class="btn btn-success" href="{% url 'blog:login' %}">Log in</a></p>
+
+            {% else %}
+
+            <h2>Register Here!</h2>
+            <br>
+            <h3>Fill out the form:</h3>
+            <br>
+              <!-- enctype is multipart/form-data as we asking for  multimedia data such as images from website user -->
+            <form enctype="multipart/form-data" method="post">
+              {% csrf_token %}
+              {{ UserEntryForm|crispy }}
+              <br>
+              <input type="submit" name="" value="Register">
+            </form>
+
+            {% endif %}
+
+          </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,161 @@
+{%  extends 'blog/base.html'  %}
+
+{% block body_block %}
+    <br>
+    <br>
+    <!-- AUTHOR PROFILE   -->
+
+
+    <br><br>
+
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-2">
+          {% if user.profile.profile_pic %}
+              <img src="{{user.profile.profile_pic.url}}" class="img-fluid rounded-start" class=".img-rounded" alt="..." >
+          {% else %}
+              <img src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg" class="img-fluid rounded-start" alt="...">
+          {% endif %}
+        </div>
+        <div class="col-md-10">
+          <div class="card-body">
+            {% if user.first_name and user.last_name %}
+                <h5 class="card-title">  {{user.first_name}} {{user.last_name}}</h5>
+            {% else %}
+                <h5 class="card-title">{{user.username}}</h5>
+            {% endif %}
+
+            <p class="small text-muted">
+                  <!-- {% if user.profile.id %}
+                        <a href="{% url 'blog:show_profile_page' user.profile.id %}">Profile Page</a> |
+                  {% endif %} -->
+
+                  {% if user.profile.fb_url %}
+                    <a href="{{user.profile.fb_url}}">Facebook </a> |
+                 {% endif %}
+                 {% if user.profile.pratilipi_url%}
+                    <a href="{{user.profile.pratilipi_url}}">Pratilipi </a> |
+                 {% endif %}
+                 {% if user.profile.linkedin_url %}
+                    <a href="{{user.profile.linkedin_url}}">Linked In</a>
+                 {% endif %}
+            </p>
+            <p class="card-text">{{user.profile.bio|linebreaksbr}}</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<br>
+
+
+    <!--- AUTHOR POST -->
+
+    <br>
+    <h3>Published Posts</h3>
+    <hr>
+    <!--
+
+
+       <div class="container">
+           <div class="row">
+
+
+                         <div class="row row-cols-1 row-cols-md-4 g-6">
+                                 {% for post in posts %}
+                                     {% if post.author_id == user.id %}
+                                           <div class="col">
+                                           <div class="card">
+                                             {% if post.header_image %}
+                                                 <img class="img-list" src="{{ post.header_image.url }}" alt="">
+                                             {% else %}
+                                                 <img class="img-list" src="https://images.pexels.com/photos/4218710/pexels-photo-4218710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                             {% endif %}
+                                             <div class="card-body">
+                                               <h8 class="card-title"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h8>
+                                               <p class="card-text">  <time class="date">
+                                                     {{ post.published_date }}
+                                                 </time> </p>
+                                             </div>
+                                           </div>
+                                           <br>
+                                           <br>
+                                           </div>
+
+                                     {% endif %}
+                                 {% endfor %}
+
+                         </div>
+
+
+
+           </div>
+
+           <hr>
+
+       </div>
+  -->
+
+    <!-- test 1  -->
+
+    <!-- {% if user.posts %}
+     <p>post h</p>
+    {% else %}
+      <p>No Posts have been created yet !!!!!!</p>
+    {% endif %} -->
+
+          <div class="container">
+              <div class="row">
+                            <div class="row row-cols-1 row-cols-md-4 g-6">
+                                    {% for post in posts %}
+                                        {% if post.author_id == user.id %}
+                                              <div class="col">
+                                              <div class="card">
+                                                {% if post.header_image %}
+                                                    <img class="img-list" src="{{ post.header_image.url }}" alt="">
+                                                {% else %}
+                                                    <img class="img-list" src="https://images.pexels.com/photos/4218710/pexels-photo-4218710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                                {% endif %}
+                                                <div class="card-body">
+                                                  <h8 class="card-title"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h8>
+                                                  <p class="card-text">  <time class="date">
+                                                        {{ post.published_date }}
+                                                    </time> </p>
+                                                </div>
+                                              </div>
+                                              <br>
+                                              <br>
+                                              </div>
+
+                                        {% endif %}
+                                    {% endfor %}
+
+                            </div>
+
+
+
+              </div>
+
+            
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

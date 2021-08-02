@@ -1,0 +1,45 @@
+{%  extends 'blog/base.html'  %}
+
+{% block body_block %}
+<br>
+
+<main>
+    <div class="container py-4">
+
+
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Who are We?</h1>
+            <!-- <p><img src="https://images.pexels.com/photos/4050319/pexels-photo-4050319.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" height=50% width=80% alt=""></p> -->
+            <p class="col-md-8 fs-4">Wordfeel is an open online digital platform for all the writers and readers of the world where you can write, publish and earn as well!</p>
+            <!-- <button class="btn btn-primary btn-lg" type="button">Example button</button> -->
+          </div>
+        </div>
+
+        <div class="row align-items-md-stretch">
+          <div class="col-md-6">
+            <div class="h-100 p-5 text-white bg-dark rounded-3">
+              <h2>Contact Us</h2>
+                <p>Feedback mail:</p>
+              <p>Email: wordfeel@gmail.com</p>
+              <!-- <button class="btn btn-outline-light" type="button">Example button</button> -->
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+              <h2>Other links</h2>
+              <p><a href="https://hindi.pratilipi.com/user/%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A4%BE%E0%A4%B2-%E0%A4%AE%E0%A5%8C%E0%A4%B0%E0%A5%8D%E0%A4%AF-6thq5o6nbz">Pratilipi</a></p>
+              <p><a href="https://www.facebook.com/vishal.kavishayar.9/">Facebook</a></p>
+
+              <a class="btn btn-warning" href="{% url 'home' %}">Home</a>
+            </div>
+          </div>
+        </div>
+
+        <footer class="pt-3 mt-4 text-muted border-top">
+          &copy; WordFeel
+        </footer>
+    </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{%  extends 'blog/base.html'  %}
+
+{% block body_block %}
+    <br>
+    <header class="page-header">
+        <h1>Wordfeel Blog</h1>
+    </header>
+    <br>
+    <!-- md : no. of cards in a row, g: space bw each card-->
+
+  <div class="container">
+      <div class="row">
+
+
+                    <div class="row row-cols-1 row-cols-md-4 g-6">
+                            {% for post in posts %}
+                                <div class="col">
+                                <div class="card">
+                                  {% if post.header_image %}
+                                      <img class="img-list" src="{{ post.header_image.url }}" alt="">
+                                  {% else %}
+                                      <img class="img-list" src="https://images.pexels.com/photos/4218710/pexels-photo-4218710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                  {% endif %}
+                                  <div class="card-body">
+                                    <h8 class="card-title"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h8>
+                                    <img src="https://th.bing.com/th/id/R.3a8d60d51eb12e18fa6e25ef6b9d7037?rik=MyMHO%2fUHOsM%2b%2fw&riu=http%3a%2f%2fpngimg.com%2fuploads%2flike%2flike_PNG10.png&ehk=VYgcKJIzr9mN1c%2bX23n%2bM1hGyEZ2PMf9BGzeJhYZOl0%3d&risl=&pid=ImgRaw" width="2%" height="2%" alt=""> {{ total_likes }}
+                                    <p class="card-text">  <time class="date">
+                                          {{ post.published_date }}
+                                      </time> </p>
+                                  </div>
+                                </div>
+                                <br>
+                                <br>
+                                </div>
+
+                            {% endfor %}
+
+
+
+
+                    </div>
+
+
+
+      </div>
+
+      <hr>
+  </div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+          <!-- md : no. of cards in a row, g: space bw each card-->

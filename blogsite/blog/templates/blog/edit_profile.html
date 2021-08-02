@@ -1,0 +1,24 @@
+{%  extends 'blog/base.html'  %}
+{%load crispy_forms_tags %}
+
+
+
+{% block body_block %}
+
+    <div class="p-5 mb-4 bg-light rounded-3">
+          <div class="container-fluid py-5">
+            <h2>Edit Settings</h2>
+            <br>
+              <!-- enctype is multipart/form-data as we asking for  multimedia data such as images from website user -->
+            <form enctype="multipart/form-data" method="post">
+              {% csrf_token %}
+              {{ form|crispy }}
+              <br>
+              <input type="submit" name="" value="Update">
+            </form>
+
+          </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,153 @@
+{%  extends 'blog/base.html'  %}
+
+{% block body_block %}
+
+      <main>
+
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/><img src="https://images.pexels.com/photos/3350123/pexels-photo-3350123.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""></svg>
+
+              <div class="container">
+                <div class="carousel-caption text-start">
+                  <h1>Welcome to Wordfeel</h1>
+                  <p>Your own Space to Write and  Publish to the world!</p>
+                  <!-- <p><a class="btn btn-lg btn-primary" href="{% url 'blog:register' %}">Register Now!</a></p> -->
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/><img src="https://images.pexels.com/photos/3769120/pexels-photo-3769120.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""></svg>
+
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>Please Log in after you Register </h1>
+                  <p class="p2-carousel">After Logging in, You can create New Post and also update existing Posts.</p>
+                  <!-- <p><a class="btn btn-lg btn-primary" href="{% url 'blog:login' %}">Log in</a></p> -->
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/><img src="https://images.pexels.com/photos/372748/pexels-photo-372748.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""></svg>
+
+              <div class="container">
+                <div class="carousel-caption text-end">
+                  <h1>Create New Post</h1>
+                  <p class="p3-carousel">Please express what's on your mind!</p>
+                  {% if user.is_authenticated %}
+                  <!-- <p><a class="btn btn-lg btn-primary" href="{% url 'blog:post_new' %}">Create New Post</a></p> -->
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+
+        <!-- Marketing messaging and featurettes
+        ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+
+        <div class="container marketing">
+
+          <!-- Three columns of text below the carousel -->
+          <div class="row">
+            <div class="col-lg-4">
+              <img src="https://th.bing.com/th/id/R.938e8685ecd441ef3bfdbc7e612eef67?rik=fZ6YcNGVK6AjNQ&riu=http%3a%2f%2fwww.clker.com%2fcliparts%2f2%2fe%2f9%2f0%2f1368378114502935322creative-writing_256-hi.png&ehk=dp9I4IY65t2A5ZaToSHdW0i5QYTt4c4%2fFKUXAXFCgQA%3d&risl=&pid=ImgRaw" height=50% width=50% class="img-responsive"   class="img-circle"    alt="Cinque Terre">
+              <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title><img src="https://images.pexels.com/photos/372748/pexels-photo-372748.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=50&w=40" alt=""></title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text><img src="" alt=""><img src="https://images.pexels.com/photos/372748/pexels-photo-372748.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=50&w=40" alt=""></svg> -->
+
+              <h2>Write</h2>
+              <p>Just Pen down what's in your heart and mind in Hindi or English!</p>
+
+              <!-- <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p> -->
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <img src="https://th.bing.com/th/id/R.a50a0af438331b4b6735317678a5a001?rik=%2bK1xCIgGa6rVUA&riu=http%3a%2f%2ficonka.com%2fwp-content%2fuploads%2f2012%2f03%2fsplash-transparent.png&ehk=a3XiSP4fPMZFeR5bblcl9CedQCcNeMsAR4IbgaYORpc%3d&risl=&pid=ImgRaw" height=50% width=50% class="img-responsive"   class="img-circle"    alt="Cinque Terre">
+              <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg> -->
+
+              <h2>Publish</h2>
+              <p>Hey Writer ! You can Publish your Best Content here.</p>
+              <!-- <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p> -->
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="https://www.onlygfx.com/wp-content/uploads/2020/11/stack-of-gold-coins-1-300x268.png"  height=50% width=50% class="img-circle"    alt="Cinque Terre">
+              <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg> -->
+
+              <h2>Earn</h2>
+              <p>You will earn too! Based on Number of likes on your Post</p>
+              <!-- <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p> -->
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
+
+          <!-- START THE FEATURETTES -->
+          <hr class="featurette-divider">
+
+          <div class="row featurette">
+            <div class="col-md-7">
+              <h2 class="featurette-heading">It's Never Before Oppurtunity! <span class="text-muted">It’ll Change Your Life !</span></h2>
+              <p class="lead"> “You fail only if you stop writing.” — Ray Bradbury</p>
+            </div>
+            <div class="col-md-5">
+              <img src="https://images.pexels.com/photos/3756168/pexels-photo-3756168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="110%" height="110%"alt="">
+              <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500"  role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text><img src="https://cdn1.iconfinder.com/data/icons/money-16/500/coins-512.png" alt=""></svg> -->
+
+            </div>
+          </div>
+
+          <hr class="featurette-divider">
+
+          <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+              <h2 class="featurette-heading">Well Begun <span class="text-muted">is Half Done!</span></h2>
+              <p class="lead">“I’m a greater believer in luck, and I find the harder I work the more I have of it.” - Thomas Jefferson</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+              <img src="https://images.pexels.com/photos/935756/pexels-photo-935756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="100%" height="110%" alt="">
+              <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
+
+            </div>
+          </div>
+
+          <hr class="featurette-divider">
+
+          <div class="row featurette">
+            <div class="col-md-7">
+              <h2 class="featurette-heading">Let's Feel the word <span class="text-muted">with Wordfeel!</span></h2>
+              <p class="lead">“If there’s a book that you want to read, but it hasn’t been written yet, then you must write it.” — Toni Morrison</p>
+            </div>
+            <div class="col-md-5">
+                <img src="https://images.pexels.com/photos/3184428/pexels-photo-3184428.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="110%" height="110%"alt="">
+              <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
+
+            </div>
+          </div>
+
+          <hr class="featurette-divider">
+
+          <!-- /END THE FEATURETTES -->
+
+        </div><!-- /.container -->
+
+
+        <!-- FOOTER -->
+        <footer class="container">
+          <p class="float-end"><a href="#">Back to top</a></p>
+          <p>&copy; Developed By Vishal Maurya</p>
+        </footer>
+      </main>
+
+{% endblock %}

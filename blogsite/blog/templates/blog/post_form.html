@@ -1,0 +1,26 @@
+{%  extends 'blog/base.html'  %}
+{%load crispy_forms_tags %}
+
+{% block body_block %}
+
+      <h1>
+          <br>
+          {% if not form.instance.pk %}
+          <!-- checks instance of a pk exists or not! if it doesn't exists that means it is a new school -->
+              Create New Post
+          {% else %}
+          <!-- otherwise we update school that currently exists! -->
+              Update Post
+          {% endif %}
+       </h1>
+
+      <form class="form_size" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.media }}
+          {{ form|crispy }}
+          <br>
+          <input type="submit" class="btn btn-primary" value="Submit">
+
+        </form>
+
+{% endblock %}
